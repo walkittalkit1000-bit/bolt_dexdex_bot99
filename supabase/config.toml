@@ -1,0 +1,3 @@
+[functions.arb-relay]
+verify_jwt = false
+entrypoint = "./functions/arb-relay/index.ts"
