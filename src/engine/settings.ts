@@ -11,6 +11,10 @@ export type CDPPaymasterConfig = {
   sponsorshipRatio: number;
 };
 
+export type RpcEndpoints = {
+  [chainId: number]: string;
+};
+
 export type EngineSettings = {
   activeChains: ChainId[];
   primaryChain: ChainId;
@@ -38,6 +42,7 @@ export type EngineSettings = {
   maxInstructionCount: number;
   autoExecute: boolean;
   maxConcurrentBundles: number;
+  privateRpcUrls: RpcEndpoints;
 };
 
 const SETTINGS_KEY = 'arb-engine-settings-v2';
@@ -70,6 +75,7 @@ export const DEFAULT_SETTINGS: EngineSettings = {
   maxInstructionCount: 12,
   autoExecute: false,
   maxConcurrentBundles: 3,
+  privateRpcUrls: {},
 };
 
 type SettingsListener = (settings: EngineSettings) => void;

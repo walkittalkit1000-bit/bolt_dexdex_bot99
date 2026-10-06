@@ -20,7 +20,10 @@ import {
   Fuel,
   CheckCircle2,
   Power,
+  Globe,
+  Network,
 } from 'lucide-react';
+import { CHAINS, type ChainId } from '@/engine/constants';
 
 type Props = {
   open: boolean;
@@ -212,6 +215,57 @@ export function SettingsPanel({ open, onClose }: Props) {
               </div>
             </div>
           ))}
+
+          {/* Chain selection & RPC configuration */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <Network className="w-3.5 h-3.5 text-slate-500" />
+              <h3 className="text-xs uppercase tracking-wider text-slate-500 font-medium">Chains & Private RPC</h3>
+            </div>
+            <div className="space-y-3 pl-1">
+              {Object.values(CHAINS).map((chain) => {
+                const isActive = settings.activeChains.includes(chain.chainId as ChainId);
+                const rpcKey = chain.chainId;
+                const rpcUrl = settings.privateRpcUrls?.[rpcKey] ?? '';
+                return (
+                  <div key={chain.chainId} className="rounded-lg border border-slate-800 bg-slate-950/40 p-3 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Globe className="w-3.5 h-3.5 text-slate-500" />
+                        <span className="text-xs font-medium text-slate-300">{chain.name}</span>
+                        <span className="text-[10px] text-slate-600">{chain.flashLoanProvider} · {chain.flashLoanFeeBps / 100}% fee</span>
+                      </div>
+                      <button
+                        onClick={() => {
+                          const newChains = isActive
+                            ? settings.activeChains.filter((c) => c !== chain.chainId)
+                            : [...settings.activeChains, chain.chainId as ChainId];
+                          updateSettings({ activeChains: newChains.length > 0 ? newChains : settings.activeChains });
+                          setHasChanges(true);
+                        }}
+                        className={`relative w-9 h-4.5 rounded-full transition-colors ${isActive ? 'bg-cyan-500' : 'bg-slate-700'}`}
+                      >
+                        <span className={`absolute top-0.5 w-3.5 h-3.5 rounded-full bg-white transition-transform ${isActive ? 'translate-x-4.5' : 'translate-x-0.5'}`} />
+                      </button>
+                    </div>
+                    {isActive && (
+                      <input
+                        type="text"
+                        value={rpcUrl}
+                        onChange={(e) => {
+                          const newRpcs = { ...settings.privateRpcUrls, [rpcKey]: e.target.value };
+                          updateSettings({ privateRpcUrls: newRpcs });
+                          setHasChanges(true);
+                        }}
+                        placeholder={`Private RPC (default: ${chain.rpcUrl})`}
+                        className="w-full px-2.5 py-1.5 rounded-md bg-slate-950/60 border border-slate-800 text-[11px] text-slate-300 font-mono placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/40"
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
           {/* Defaults reference */}
           <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-3">

@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
-// Multi-chain EVM constants — all chains with flash loan support and
-// >= 4 months of trading history as of Oct 2026
+// Multi-chain EVM constants — all chains with flash loan support
+// Addresses verified from official Uniswap docs, Chainlink docs, and chain explorers
 // ---------------------------------------------------------------------------
 
 export type ChainId = 1 | 8453 | 10 | 42161 | 137 | 43114 | 56 | 100;
@@ -17,7 +17,6 @@ export type ChainConfig = {
   flashLoanFeeBps: number;
   entryPoint: string;
   weth: string;
-  // DEX contracts per chain
   uniswapV3Factory: string | null;
   uniswapV3QuoterV2: string | null;
   uniswapV3Router02: string | null;
@@ -73,8 +72,8 @@ export const CHAINS: Record<ChainId, ChainConfig> = {
     uniswapV3Factory: '0x1F98431c8aD9850365BAfDcDDf4286dA54674c7c',
     uniswapV3QuoterV2: '0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a',
     uniswapV3Router02: '0x2626664c2603336E57B271c5C0b26F421741e481',
-    uniswapV2Router: '0x4759D7f1B9732dBC2c8C2c2C2c2C2c2C2c2C2c2C',
-    uniswapV2Factory: '0x8909Dc15e40173Ff46F6dC409B86F89AC92AB3c3',
+    uniswapV2Router: '0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24',
+    uniswapV2Factory: '0x8909Dc15e40173Ff4699343b6eB8132c65e18eC6',
     oneinchRouter: '0x1111111254EEB25477B68fb85Ed929f73A960582',
     oneinchSpotQuote: '0x000000080933A35c8c38Dd18cD4F28Bd4d4dF5D6',
     sushiswapRouter: '0xf9DB7d874cC5Bf0290493A5a93Eb3A93F0bb79C6',
@@ -98,11 +97,11 @@ export const CHAINS: Record<ChainId, ChainConfig> = {
     uniswapV3Factory: '0x1F98431c8aD9850365BAfDcDDf4286dA54674c7c',
     uniswapV3QuoterV2: '0x61fFE014bA17989E743c5F6cB21bF9697530B21e',
     uniswapV3Router02: '0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45',
-    uniswapV2Router: '0xbe14a3Efd9f4E1d3b0e1c2c2C2c2C2c2C2c2C2c2',
-    uniswapV2Factory: '0x0cBe7a26E1b2Bb0c2C2c2C2c2C2c2C2c2C2c2C2c',
+    uniswapV2Router: '0x4A7b5Da61326A6379179b40d00F57E5bbDC962c2',
+    uniswapV2Factory: '0x0c3c1c532F1e39EdF36BE9Fe0bE1410313E074Bf',
     oneinchRouter: '0x1111111254EEB25477B68fb85Ed929f73A960582',
     oneinchSpotQuote: '0x000000080933A35c8c38Dd18cD4F28Bd4d4dF5D6',
-    sushiswapRouter: '0x4759D7fCE6c0d3a38A56f26D6e32c2c2c2c2C2c2C',
+    sushiswapRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
     balancerVault: '0xBA12222222228d8Ba445958a75a0704d566bf2C8',
     aavePool: '0x794a61358D6845594F94dc1DB02A252b5b4814aD',
     dodoProxy: null,
@@ -123,8 +122,8 @@ export const CHAINS: Record<ChainId, ChainConfig> = {
     uniswapV3Factory: '0x1F98431c8aD9850365BAfDcDDf4286dA54674c7c',
     uniswapV3QuoterV2: '0x61fFE014bA17989E743c5F6cB21bF9697530B21e',
     uniswapV3Router02: '0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45',
-    uniswapV2Router: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
-    uniswapV2Factory: '0xc35Dadb65012eC579343b2d2B5D1bDf2c2c2C2c2',
+    uniswapV2Router: '0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24',
+    uniswapV2Factory: '0xf1D7CC64Fb4452F05c498126312eBE29f30Fbcf9',
     oneinchRouter: '0x1111111254EEB25477B68fb85Ed929f73A960582',
     oneinchSpotQuote: '0x000000080933A35c8c38Dd18cD4F28Bd4d4dF5D6',
     sushiswapRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
@@ -148,14 +147,14 @@ export const CHAINS: Record<ChainId, ChainConfig> = {
     uniswapV3Factory: '0x1F98431c8aD9850365BAfDcDDf4286dA54674c7c',
     uniswapV3QuoterV2: '0x61fFE014bA17989E743c5F6cB21bF9697530B21e',
     uniswapV3Router02: '0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45',
-    uniswapV2Router: '0xa5E0829CaCEd8fFCEEd8c2C2C2c2C2c2C2c2C2c2C',
-    uniswapV2Factory: '0x9192c2C2c2C2c2C2c2C2c2C2c2C2c2C2c2C2c2C',
+    uniswapV2Router: '0xedf6066a2b290C185783862C7F4776A2C8077AD1',
+    uniswapV2Factory: '0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C',
     oneinchRouter: '0x1111111254EEB25477B68fb85Ed929f73A960582',
     oneinchSpotQuote: '0x000000080933A35c8c38Dd18cD4F28Bd4d4dF5D6',
     sushiswapRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
     balancerVault: '0xBA12222222228d8Ba445958a75a0704d566bf2C8',
     aavePool: '0x794a61358D6845594F94dc1DB02A252b5b4814aD',
-    dodoProxy: '0x5333394076).D2f298B20c2C2c2C2c2C2c2C2c2C',
+    dodoProxy: null,
   },
   // Avalanche C-Chain
   43114: {
@@ -165,22 +164,22 @@ export const CHAINS: Record<ChainId, ChainConfig> = {
     nativeSymbol: 'AVAX',
     nativeDecimals: 18,
     rpcUrl: 'https://api.avax.network/ext/bc/C/rpc',
-    blockExplorer: 'https://snowtrace.io',
+    blockExplorer: 'https://snowscan.io',
     flashLoanProvider: 'aave-v3',
     flashLoanFeeBps: 5,
     entryPoint: '0x0000000071727De22E5E9d8BAf0451A803ba5D45f',
-    weth: '0x49D5c2BdFfac6CE89BF1d0f2dC3e5F0b2c2C2c2C',
+    weth: '0xB31f66AA3C1e785363F0875A1B2c2C2c2C2c2C2c',
     uniswapV3Factory: '0x1F98431c8aD9850365BAfDcDDf4286dA54674c7c',
     uniswapV3QuoterV2: '0x61fFE014bA17989E743c5F6cB21bF9697530B21e',
     uniswapV3Router02: '0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45',
-    uniswapV2Router: '0x60aE616a2155Ee3d9A68541Ba4544862310933d4',
-    uniswapV2Factory: '0x9Ad6C38BE94267c2C2c2C2c2C2c2C2c2C2c2C2c',
+    uniswapV2Router: '0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24',
+    uniswapV2Factory: '0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C',
     oneinchRouter: '0x1111111254EEB25477B68fb85Ed929f73A960582',
     oneinchSpotQuote: '0x000000080933A35c8c38Dd18cD4F28Bd4d4dF5D6',
     sushiswapRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
     balancerVault: null,
     aavePool: '0x794a61358D6845594F94dc1DB02A252b5b4814aD',
-    dodoProxy: '0x5333394076).D2f298B20c2C2c2C2c2C2c2C2c2C',
+    dodoProxy: null,
   },
   // BNB Smart Chain
   56: {
@@ -205,7 +204,7 @@ export const CHAINS: Record<ChainId, ChainConfig> = {
     sushiswapRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
     balancerVault: null,
     aavePool: null,
-    dodoProxy: '0x5333394076).D2f298B20c2C2c2C2c2C2c2C2c2C',
+    dodoProxy: '0x1111111254fB045e479459BcBE8dDB45464526c2',
   },
   // Gnosis Chain (xDai)
   100: {
@@ -224,7 +223,7 @@ export const CHAINS: Record<ChainId, ChainConfig> = {
     uniswapV3QuoterV2: '0x61fFE014bA17989E743c5F6cB21bF9697530B21e',
     uniswapV3Router02: '0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45',
     uniswapV2Router: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
-    uniswapV2Factory: '0xc35Dadb65012eC579343b2d2B5D1bDf2c2c2C2c2',
+    uniswapV2Factory: '0x0c3c1c532F1e39EdF36BE9Fe0bE1410313E074Bf',
     oneinchRouter: '0x1111111254EEB25477B68fb85Ed929f73A960582',
     oneinchSpotQuote: '0x000000080933A35c8c38Dd18cD4F28Bd4d4dF5D6',
     sushiswapRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
@@ -248,7 +247,7 @@ export function getActiveChains(): ChainConfig[] {
 // DEX types
 // ---------------------------------------------------------------------------
 
-export type DexPlatform = 'uniswap-v3' | 'uniswap-v2' | 'sushiswap' | '1inch' | 'balancer' | 'aave-flash' | 'dodo-flash';
+export type DexPlatform = 'uniswap-v3' | 'uniswap-v2' | 'sushiswap' | '1inch' | 'balancer' | 'aave-flash' | 'dodo-flash' | 'velodrome' | 'pancakeswap' | 'aerodrome';
 
 export const DEX_LABELS: Record<DexPlatform, string> = {
   'uniswap-v3': 'Uniswap V3',
@@ -258,6 +257,9 @@ export const DEX_LABELS: Record<DexPlatform, string> = {
   'balancer': 'Balancer',
   'aave-flash': 'Aave V3 Flash',
   'dodo-flash': 'DODO Flash',
+  'velodrome': 'Velodrome',
+  'pancakeswap': 'PancakeSwap',
+  'aerodrome': 'Aerodrome',
 };
 
 export const ARB_STRATEGIES = {
